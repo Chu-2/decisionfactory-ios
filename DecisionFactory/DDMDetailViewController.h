@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DDMDetailViewController : UIViewController
-
-@property (strong, nonatomic) id detailItem;
-
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *voteIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *algorithmLabel;
+@property (weak, nonatomic) IBOutlet UITextView *optionView;
+@property (nonatomic) NSInteger voteId;
 @end
