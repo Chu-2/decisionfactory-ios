@@ -16,6 +16,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @end
 
 @implementation loginViewController
@@ -23,10 +24,24 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+	self.username.delegate = self;
+	self.password.delegate = self;
+	
+	self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	self.activityIndicatorView.hidesWhenStopped = YES;
+	self.activityIndicatorView.center = self.view.center;
+	[self.view addSubview:self.activityIndicatorView];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	return YES;
 }
 
 - (IBAction)loginButtonPressed {
+	[self.activityIndicatorView startAnimating];
+	
 	NSURL *url = [NSURL URLWithString:kMyAppBaseURLString];
 	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
 	[httpClient defaultValueForHeader:@"Accept"];
@@ -37,6 +52,8 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		if ([JSON objectForKey:@"user_token"]) {
+			[self.activityIndicatorView stopAnimating];
+			
 			self.resultLabel.text = @"Correct!";
 			
 			NSMutableDictionary *userInfo = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] mutableCopy];

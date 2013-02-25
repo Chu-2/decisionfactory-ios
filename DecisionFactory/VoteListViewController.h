@@ -1,5 +1,5 @@
 //
-//  loginViewController.h
+//  DDMMasterViewController.h
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/16/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface loginViewController : UIViewController <UITextFieldDelegate>
-
+@interface VoteListViewController : UITableViewController
+@property (strong, nonatomic) NSArray *voteList;
 @end

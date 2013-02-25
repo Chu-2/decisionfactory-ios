@@ -15,6 +15,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DecisionFactory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzw-Tw-l5W">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="cGX-DM-DlC"/>
+                                    <constraint firstAttribute="height" constant="50" id="eCU-QF-eCj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -71,10 +72,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dL5-ni-yOs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="4BD-y7-3XB"/>
                             <constraint firstItem="KrM-aX-gDu" firstAttribute="bottom" secondItem="rFC-Sl-Led" secondAttribute="bottom" type="default" id="53i-lP-GpY"/>
-                            <constraint firstItem="dL5-ni-yOs" firstAttribute="centerY" secondItem="UfX-6J-An9" secondAttribute="centerY" type="default" id="9rt-i7-7iT"/>
                             <constraint firstAttribute="trailing" secondItem="rFC-Sl-Led" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DDY-cb-6Ly"/>
-                            <constraint firstItem="PPu-Cx-4nQ" firstAttribute="top" secondItem="UfX-6J-An9" secondAttribute="top" constant="78" id="Dqa-pW-1VI"/>
                             <constraint firstItem="dL5-ni-yOs" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ELD-ve-BIZ"/>
+                            <constraint firstItem="dL5-ni-yOs" firstAttribute="centerY" secondItem="UfX-6J-An9" secondAttribute="centerY" type="default" id="Edy-CG-BCA"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="top" secondItem="KrM-aX-gDu" secondAttribute="top" type="default" id="JC2-0i-1cP"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="leading" secondItem="KrM-aX-gDu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KvL-Aa-43O"/>
                             <constraint firstItem="dL5-ni-yOs" firstAttribute="top" secondItem="kun-Sf-Osy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OQ5-bF-Qma"/>
@@ -82,13 +82,13 @@
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="leading" secondItem="PPu-Cx-4nQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="clQ-dt-AMq"/>
                             <constraint firstItem="PPu-Cx-4nQ" firstAttribute="top" secondItem="dzw-Tw-l5W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dWR-ez-B0L"/>
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="leading" secondItem="rFC-Sl-Led" secondAttribute="leading" type="default" id="ebr-bk-vhr"/>
-                            <constraint firstItem="kun-Sf-Osy" firstAttribute="centerX" secondItem="dL5-ni-yOs" secondAttribute="centerX" type="default" id="g5l-zR-4kY"/>
                             <constraint firstItem="PPu-Cx-4nQ" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="g8c-QS-tR5"/>
                             <constraint firstItem="KrM-aX-gDu" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gDp-Ei-db4"/>
                             <constraint firstItem="KrM-aX-gDu" firstAttribute="top" secondItem="PPu-Cx-4nQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gUP-d6-1ah"/>
                             <constraint firstAttribute="trailing" secondItem="RtW-eM-Mxr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="huN-Sr-mfo"/>
                             <constraint firstItem="kun-Sf-Osy" firstAttribute="centerX" secondItem="dzw-Tw-l5W" secondAttribute="centerX" type="default" id="oYM-au-phF"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="top" secondItem="RtW-eM-Mxr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="puv-Do-evQ"/>
+                            <constraint firstItem="dL5-ni-yOs" firstAttribute="centerX" secondItem="kun-Sf-Osy" secondAttribute="centerX" type="default" id="uCh-j8-Cky"/>
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="top" secondItem="dzw-Tw-l5W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xn5-bT-CsC"/>
                         </constraints>
                     </view>
@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="-643" y="-234"/>
         </scene>
-        <!--Master View Controller - Master-->
+        <!--Vote List View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="DDMMasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="VoteListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="434" y="64"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Vote Detail View Controller - Detail-->
         <scene sceneID="24">
             <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DDMDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="VoteDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,39 +364,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1X-dx-0KK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="64"/>
+            <point key="canvasLocation" x="1313" y="64"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CastVoteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CastVoteViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pickOption" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="DDMDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DDMDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="algorithmLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="optionView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="voteIdLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DDMMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DDMMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="loginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/loginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
