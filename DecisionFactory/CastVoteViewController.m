@@ -13,6 +13,7 @@
 static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
 @interface CastVoteViewController ()
+@property (weak, nonatomic) IBOutlet UIView *majorityVoteView;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickOption;
 @property (nonatomic) NSInteger pickedOptionId;
 @end
@@ -25,9 +26,6 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	
 	self.pickOption.delegate = self;
 	self.pickOption.dataSource = self;
-	
-	NSLog(@"%@", [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] objectForKey:@"user_token"]);
-	NSLog(@"%@", [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] objectForKey:@"user_id"]);
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

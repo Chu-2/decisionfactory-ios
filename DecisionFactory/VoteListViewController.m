@@ -1,5 +1,5 @@
 //
-//  DDMMasterViewController.m
+//  VoteListViewController.m
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/16/13.
@@ -59,12 +59,6 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	NSDictionary *vote = [[NSDictionary alloc] initWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
 	cell.textLabel.text = [vote objectForKey:@"vote"];
     return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
 }
 
 /*

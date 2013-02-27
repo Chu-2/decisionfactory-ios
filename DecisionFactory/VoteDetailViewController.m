@@ -1,5 +1,5 @@
 //
-//  DDMDetailViewController.m
+//  VoteDetailViewController.m
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/16/13.
@@ -7,7 +7,7 @@
 //
 
 #import "VoteDetailViewController.h"
-#import "CastVoteViewController.h"
+#import "CastVoteTVC.h"
 #import "AFJSONRequestOperation.h"
 
 static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
@@ -49,7 +49,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([[segue identifier] isEqualToString:@"CastVote"]) {
-		CastVoteViewController *castVote = [segue destinationViewController];
+		CastVoteTVC *castVote = [segue destinationViewController];
 		castVote.optionList = [self.optionList copy];
 		castVote.voteId = self.voteId;
 	}

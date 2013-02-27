@@ -1,25 +1,25 @@
 //
-//  loginViewController.m
+//  LoginViewController.m
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/16/13.
 //  Copyright (c) 2013 TeamNameFactory. All rights reserved.
 //
 
-#import "loginViewController.h"
+#import "LoginViewController.h"
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 
 static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
-@interface loginViewController ()
+@interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @end
 
-@implementation loginViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad
 {
@@ -51,9 +51,8 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"login.php" parameters:params];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		[self.activityIndicatorView stopAnimating];
 		if ([JSON objectForKey:@"user_token"]) {
-			[self.activityIndicatorView stopAnimating];
-			
 			self.resultLabel.text = @"Correct!";
 			
 			NSMutableDictionary *userInfo = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] mutableCopy];
@@ -70,6 +69,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 			NSLog(@"%@", JSON);
 		}
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		[self.activityIndicatorView stopAnimating];
 		NSLog(@"Error: %@", error);
 	}];
 	

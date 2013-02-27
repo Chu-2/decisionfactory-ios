@@ -1,5 +1,5 @@
 //
-//  DDMDetailViewController.h
+//  VoteDetailViewController.h
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/16/13.
