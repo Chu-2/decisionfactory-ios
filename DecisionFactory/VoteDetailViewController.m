@@ -34,7 +34,8 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSURL *url = [NSURL URLWithString:[kMyAppBaseURLString stringByAppendingPathComponent:@"voteDetail.json"]];
+	NSURL *baseURL = [NSURL URLWithString:kMyAppBaseURLString];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"vote/%i.json", self.voteId] relativeToURL:baseURL];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -51,6 +52,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	if ([[segue identifier] isEqualToString:@"CastVote"]) {
 		CastVoteTVC *castVote = [segue destinationViewController];
 		castVote.optionList = [self.optionList copy];
+		castVote.algorithm = [self.detailList objectForKey:@"algorithm"];
 		castVote.voteId = self.voteId;
 	}
 }

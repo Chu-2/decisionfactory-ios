@@ -362,7 +362,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankVoteCell" rowHeight="92" id="wJY-iz-zNj" customClass="RankVoteCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankVoteCell" id="wJY-iz-zNj" customClass="RankVoteCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -406,13 +406,35 @@
                                     <outlet property="sliderValueLabel" destination="Fnk-Zh-bCY" id="ElY-QK-RGv"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MajorityVoteCell" textLabel="0xd-y7-Ces" style="IBUITableViewCellStyleDefault" id="AEx-u8-R6u">
+                                <rect key="frame" x="0.0" y="114" width="320" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xd-y7-Ces">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Zde-Uw-FHo" id="Wi4-xT-TfX"/>
                             <outlet property="delegate" destination="Zde-Uw-FHo" id="g6K-Up-cdw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Vote Title" id="qUs-1T-SRh"/>
+                    <navigationItem key="navigationItem" title="Vote Title" id="qUs-1T-SRh">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="brc-eL-6E3">
+                            <connections>
+                                <action selector="submitButtonPressed:" destination="Zde-Uw-FHo" id="oTd-By-5UP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBR-AM-WHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

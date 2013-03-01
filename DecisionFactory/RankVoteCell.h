@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *optionText;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValueLabel;
+@property (nonatomic) NSInteger optionId;
 @end

@@ -10,5 +10,6 @@
 
 @interface CastVoteTVC : UITableViewController
 @property (strong, nonatomic) NSArray *optionList;
+@property (nonatomic) NSString *algorithm;
 @property (nonatomic) NSInteger voteId;
 @end
