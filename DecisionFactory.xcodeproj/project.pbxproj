@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		520F49B716DEAE6700C56EC5 /* RankVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B616DEAE6700C56EC5 /* RankVoteCell.m */; };
 		520F49BA16DEB21C00C56EC5 /* CastVoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */; };
-		5213300D16D1E978007C31F9 /* CastVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5213300C16D1E978007C31F9 /* CastVoteViewController.m */; };
 		5268293716CFC20B00722BA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293616CFC20B00722BA6 /* UIKit.framework */; };
 		5268293916CFC20B00722BA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293816CFC20B00722BA6 /* Foundation.framework */; };
 		5268293B16CFC20B00722BA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293A16CFC20B00722BA6 /* CoreGraphics.framework */; };
@@ -41,8 +40,6 @@
 		520F49B616DEAE6700C56EC5 /* RankVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankVoteCell.m; sourceTree = "<group>"; };
 		520F49B816DEB21C00C56EC5 /* CastVoteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastVoteTVC.h; sourceTree = "<group>"; };
 		520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastVoteTVC.m; sourceTree = "<group>"; };
-		5213300B16D1E978007C31F9 /* CastVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastVoteViewController.h; sourceTree = "<group>"; };
-		5213300C16D1E978007C31F9 /* CastVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastVoteViewController.m; sourceTree = "<group>"; };
 		5268293316CFC20B00722BA6 /* DecisionFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DecisionFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5268293616CFC20B00722BA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5268293816CFC20B00722BA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,8 +134,6 @@
 				5268294E16CFC20B00722BA6 /* MainStoryboard.storyboard */,
 				520F49B816DEB21C00C56EC5 /* CastVoteTVC.h */,
 				520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */,
-				5213300B16D1E978007C31F9 /* CastVoteViewController.h */,
-				5213300C16D1E978007C31F9 /* CastVoteViewController.m */,
 				5268295C16CFC25700722BA6 /* LoginViewController.h */,
 				5268295D16CFC25700722BA6 /* LoginViewController.m */,
 				520F49B516DEAE6700C56EC5 /* RankVoteCell.h */,
@@ -276,7 +271,6 @@
 				5268297916CFD9DD00722BA6 /* AFURLConnectionOperation.m in Sources */,
 				5268297A16CFD9DD00722BA6 /* AFXMLRequestOperation.m in Sources */,
 				5268297B16CFD9DD00722BA6 /* UIImageView+AFNetworking.m in Sources */,
-				5213300D16D1E978007C31F9 /* CastVoteViewController.m in Sources */,
 				520F49B716DEAE6700C56EC5 /* RankVoteCell.m in Sources */,
 				520F49BA16DEB21C00C56EC5 /* CastVoteTVC.m in Sources */,
 			);

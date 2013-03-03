@@ -52,24 +52,24 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		[self.activityIndicatorView stopAnimating];
-		if ([JSON objectForKey:@"user_token"]) {
-			self.resultLabel.text = @"Correct!";
+		if ([JSON objectForKey:@"token"]) {
+			self.resultLabel.text = @"Login successful!";
 			
 			NSMutableDictionary *userInfo = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] mutableCopy];
 			if (!userInfo) userInfo = [[NSMutableDictionary alloc] init];
-			[userInfo setObject:[JSON objectForKey:@"user_id"] forKey:@"user_id"];
-			[userInfo setObject:[JSON objectForKey:@"user_token"] forKey:@"user_token"];
+			[userInfo setObject:[JSON objectForKey:@"token"] forKey:@"user_token"];
 			[[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"user_info"];
 			[[NSUserDefaults standardUserDefaults] synchronize];
 			
 			[self performSegueWithIdentifier:@"Login" sender:self];
-		} else if ([JSON objectForKey:@"error_text"]) {
-			self.resultLabel.text = [JSON objectForKey:@"error_text"];
+		} else if ([JSON objectForKey:@"message"]) {
+			self.resultLabel.text = [JSON objectForKey:@"message"];
 		} else {
 			NSLog(@"%@", JSON);
 		}
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		[self.activityIndicatorView stopAnimating];
+		self.resultLabel.text = @"Connection failed.";
 		NSLog(@"Error: %@", error);
 	}];
 	

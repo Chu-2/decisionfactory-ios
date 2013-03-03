@@ -10,13 +10,22 @@
 #import "RankVoteCell.h"
 
 @interface CastVoteTVC ()
+@property (strong, nonatomic) NSMutableArray *cellData;
 @property (strong, nonatomic) NSMutableDictionary *decision;
 @end
 
 @implementation CastVoteTVC
 
+- (NSMutableArray *)cellData {
+	if (!_cellData) _cellData = [[NSMutableArray alloc] init];
+	return _cellData;
+}
+
 - (NSDictionary *)decision {
-	if (!_decision) _decision = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@(self.voteId), @"vote_id", self.algorithm, @"algorithm", nil];
+	if (!_decision) {
+		NSMutableDictionary *choices = [[NSMutableDictionary alloc] init];
+		_decision = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@(self.voteId), @"id", choices, @"choices", nil];
+	}
 	return _decision;
 }
 
@@ -58,7 +67,6 @@
 	
 	if ([self.algorithm isEqualToString:@"rank"]) {
 		RankVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RankVoteCell" forIndexPath:indexPath];
-		cell.optionId = [[option objectForKey:@"id"] intValue];
 		cell.optionText.text = [option objectForKey:@"text"];
 		return cell;
 	} else if([self.algorithm isEqualToString:@"majority"]) {
@@ -86,6 +94,9 @@
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
 	NSLog(@"%i", indexPath.row);
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
 }
 
 - (IBAction)submitButtonPressed:(UIBarButtonItem *)sender {

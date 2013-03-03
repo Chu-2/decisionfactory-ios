@@ -35,14 +35,6 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	[operation start];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table View
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
