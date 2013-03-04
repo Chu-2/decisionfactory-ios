@@ -13,7 +13,6 @@
 static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
 @interface VoteDetailViewController ()
-@property (strong, nonatomic) NSDictionary *detailList;
 @property (strong, nonatomic) NSArray *optionList;
 @end
 
@@ -22,11 +21,11 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (void)configureView
 {
 	self.voteIdLabel.text = [NSString stringWithFormat:@"Vote id: %d", self.voteId];
-	self.algorithmLabel.text = [NSString stringWithFormat:@"Algorithm: %@", [self.detailList objectForKey:@"algorithm"]];
+	self.typeLabel.text = [NSString stringWithFormat:@"Type: %@", self.type];
 	
 	NSString *displayText = @"Options:\n";
 	for (NSDictionary *option in self.optionList) {
-		displayText = [displayText stringByAppendingFormat:@"%@: %@\n", [option objectForKey:@"id"], [option objectForKey:@"text"]];
+		displayText = [displayText stringByAppendingFormat:@"%@: %@\n", [option objectForKey:@"id"], [option objectForKey:@"body"]];
 	}
 	self.optionView.text = displayText;
 }
@@ -39,8 +38,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		self.detailList = [JSON copy];
-		self.optionList = [JSON objectForKey:@"options"];
+		self.optionList = [[NSArray alloc] initWithArray:JSON];
 		[self configureView];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);

@@ -79,7 +79,7 @@
 	
 	if ([self.type isEqualToString:RANKING_VOTE]) {
 		RankingVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingVoteCell" forIndexPath:indexPath];
-		cell.optionText.text = [option objectForKey:@"text"];
+		cell.optionText.text = [option objectForKey:@"body"];
 		
 		float sliderValue = [[self.cellData objectAtIndex:indexPath.row] floatValue];
 		cell.slider.value = sliderValue;
@@ -89,7 +89,7 @@
 		return cell;
 	} else if([self.type isEqualToString:PLURALITY_VOTE]) {
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PluralityVoteCell" forIndexPath:indexPath];
-		cell.textLabel.text = [option objectForKey:@"text"];
+		cell.textLabel.text = [option objectForKey:@"body"];
 		
 		BOOL checked = [[self.cellData objectAtIndex:indexPath.row] boolValue];
 		cell.accessoryType = (checked) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;

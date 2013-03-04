@@ -320,7 +320,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Algorithm:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eRq-E2-ddD">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Type:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eRq-E2-ddD">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -354,8 +354,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="algorithmLabel" destination="eRq-E2-ddD" id="0cU-rc-rWs"/>
                         <outlet property="optionView" destination="sLq-98-3WU" id="t1S-8C-Ma9"/>
+                        <outlet property="typeLabel" destination="eRq-E2-ddD" id="wGZ-zG-Mhj"/>
                         <outlet property="voteIdLabel" destination="27" id="gzm-nf-J9b"/>
                     </connections>
                 </viewController>
@@ -452,6 +452,46 @@
             <point key="canvasLocation" x="1326" y="64"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CastVoteTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CastVoteTVC.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="submitButtonPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RankingVoteCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingVoteCell.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="optionText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderValueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VoteDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoteDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="optionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="voteIdLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VoteListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoteListViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
