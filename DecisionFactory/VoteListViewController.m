@@ -23,11 +23,11 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	NSURL *url = [NSURL URLWithString:[kMyAppBaseURLString stringByAppendingPathComponent:@"voteList.json"]];
+	NSURL *url = [NSURL URLWithString:[kMyAppBaseURLString stringByAppendingPathComponent:@"membervote/voteList.json"]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		self.voteList = [JSON objectForKey:@"votes"];
+		self.voteList = [JSON copy];
 		[self.tableView reloadData];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);
@@ -48,8 +48,9 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	NSDictionary *vote = [[NSDictionary alloc] initWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
-	cell.textLabel.text = [vote objectForKey:@"vote"];
+	NSDictionary *vote = [NSDictionary dictionaryWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
+	cell.textLabel.text = [vote objectForKey:@"body"];
+	cell.detailTextLabel.text = [vote objectForKey:@"type"];
     return cell;
 }
 
@@ -57,9 +58,9 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 {
     if ([[segue identifier] isEqualToString:@"ShowVoteDetail"]) {
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-		NSDictionary *vote = [[NSDictionary alloc] initWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
+		NSDictionary *vote = [NSDictionary dictionaryWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
 		VoteDetailViewController *detailViewController = [segue destinationViewController];
-		detailViewController.title = [vote objectForKey:@"vote"];
+		detailViewController.title = [vote objectForKey:@"body"];
 		detailViewController.voteId = [[vote objectForKey:@"id"] intValue];
     }
 }

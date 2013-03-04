@@ -42,9 +42,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (IBAction)loginButtonPressed {
 	[self.activityIndicatorView startAnimating];
 	
-	NSURL *url = [NSURL URLWithString:kMyAppBaseURLString];
-	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-	[httpClient defaultValueForHeader:@"Accept"];
+	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kMyAppBaseURLString]];
 	
 	NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.username text], @"username", [self.password text], @"password", nil];
 	

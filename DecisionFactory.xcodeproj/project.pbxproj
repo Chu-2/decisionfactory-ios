@@ -33,6 +33,7 @@
 		5268297B16CFD9DD00722BA6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5268297216CFD9DD00722BA6 /* UIImageView+AFNetworking.m */; };
 		5268297D16CFDADE00722BA6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268297C16CFDADE00722BA6 /* SystemConfiguration.framework */; };
 		5268297F16CFDAF000722BA6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268297E16CFDAF000722BA6 /* MobileCoreServices.framework */; };
+		52D723D316E493920032E97C /* MyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D723D216E493920032E97C /* MyAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		5268297216CFD9DD00722BA6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		5268297C16CFDADE00722BA6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5268297E16CFDAF000722BA6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		52D723D116E493920032E97C /* MyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAPIClient.h; sourceTree = "<group>"; };
+		52D723D216E493920032E97C /* MyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */,
 				5268295C16CFC25700722BA6 /* LoginViewController.h */,
 				5268295D16CFC25700722BA6 /* LoginViewController.m */,
+				52D723D116E493920032E97C /* MyAPIClient.h */,
+				52D723D216E493920032E97C /* MyAPIClient.m */,
 				520F49B516DEAE6700C56EC5 /* RankVoteCell.h */,
 				520F49B616DEAE6700C56EC5 /* RankVoteCell.m */,
 				5268295416CFC20B00722BA6 /* VoteDetailViewController.h */,
@@ -273,6 +278,7 @@
 				5268297B16CFD9DD00722BA6 /* UIImageView+AFNetworking.m in Sources */,
 				520F49B716DEAE6700C56EC5 /* RankVoteCell.m in Sources */,
 				520F49BA16DEB21C00C56EC5 /* CastVoteTVC.m in Sources */,
+				52D723D316E493920032E97C /* MyAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
