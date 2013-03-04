@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CastVoteTVC : UITableViewController
+@interface CastVoteTVC : UITableViewController <UIAlertViewDelegate>
 @property (strong, nonatomic) NSArray *optionList;
-@property (nonatomic) NSString *algorithm;
+@property (nonatomic) NSString *type;
 @property (nonatomic) NSInteger voteId;
 @end

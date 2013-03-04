@@ -1,5 +1,5 @@
 //
-//  RankVoteCell.h
+//  RankingVoteCell.h
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/27/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RankVoteCell : UITableViewCell
+@interface RankingVoteCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *optionText;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValueLabel;

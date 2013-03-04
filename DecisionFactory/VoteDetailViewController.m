@@ -21,7 +21,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 
 - (void)configureView
 {
-	self.voteIdLabel.text = [NSString stringWithFormat:@"Vote id: %i", self.voteId];
+	self.voteIdLabel.text = [NSString stringWithFormat:@"Vote id: %d", self.voteId];
 	self.algorithmLabel.text = [NSString stringWithFormat:@"Algorithm: %@", [self.detailList objectForKey:@"algorithm"]];
 	
 	NSString *displayText = @"Options:\n";
@@ -35,7 +35,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 {
     [super viewDidLoad];
 	NSURL *baseURL = [NSURL URLWithString:kMyAppBaseURLString];
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"vote/%i.json", self.voteId] relativeToURL:baseURL];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"vote/%d.json", self.voteId] relativeToURL:baseURL];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -52,7 +52,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	if ([[segue identifier] isEqualToString:@"CastVote"]) {
 		CastVoteTVC *castVote = [segue destinationViewController];
 		castVote.optionList = [self.optionList copy];
-		castVote.algorithm = [self.detailList objectForKey:@"algorithm"];
+		castVote.type = self.type;
 		castVote.voteId = self.voteId;
 	}
 }

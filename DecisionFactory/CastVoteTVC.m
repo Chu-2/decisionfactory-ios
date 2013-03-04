@@ -7,7 +7,7 @@
 //
 
 #import "CastVoteTVC.h"
-#import "RankVoteCell.h"
+#import "RankingVoteCell.h"
 #import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
@@ -18,14 +18,17 @@
 
 @implementation CastVoteTVC
 
+#define PLURALITY_VOTE @"plurality"
+#define RANKING_VOTE @"ranking"
+
 - (NSMutableArray *)cellData {
 	if (!_cellData) {
 		_cellData = [[NSMutableArray alloc] init];
 		
 		for (int i = 0; i < self.optionList.count; i++) {
-			if ([self.algorithm isEqualToString:@"rank"]) {
+			if ([self.type isEqualToString:RANKING_VOTE]) {
 				[_cellData insertObject:@(0) atIndex:i];
-			} else if ([self.algorithm isEqualToString:@"majority"]) {
+			} else if ([self.type isEqualToString:PLURALITY_VOTE]) {
 				[_cellData insertObject:@(NO) atIndex:i];
 			}
 		}
@@ -74,8 +77,8 @@
 {
 	NSDictionary *option = [NSDictionary dictionaryWithDictionary:[self.optionList objectAtIndex:indexPath.row]];
 	
-	if ([self.algorithm isEqualToString:@"rank"]) {
-		RankVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RankVoteCell" forIndexPath:indexPath];
+	if ([self.type isEqualToString:RANKING_VOTE]) {
+		RankingVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingVoteCell" forIndexPath:indexPath];
 		cell.optionText.text = [option objectForKey:@"text"];
 		
 		float sliderValue = [[self.cellData objectAtIndex:indexPath.row] floatValue];
@@ -84,8 +87,8 @@
 		
 		cell.row = indexPath.row;
 		return cell;
-	} else if([self.algorithm isEqualToString:@"majority"]) {
-		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MajorityVoteCell" forIndexPath:indexPath];
+	} else if([self.type isEqualToString:PLURALITY_VOTE]) {
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PluralityVoteCell" forIndexPath:indexPath];
 		cell.textLabel.text = [option objectForKey:@"text"];
 		
 		BOOL checked = [[self.cellData objectAtIndex:indexPath.row] boolValue];
@@ -99,7 +102,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if([self.algorithm isEqualToString:@"majority"]) {
+	if([self.type isEqualToString:PLURALITY_VOTE]) {
 		for (UITableViewCell *cell in [tableView visibleCells]) {
 			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
@@ -159,15 +162,22 @@
 	[operation start];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 1) {
+		//[self postDecision];
+	}
+}
+
 - (IBAction)sliderValueChanged:(UISlider *)sender {
-	RankVoteCell *cell = (RankVoteCell *)[[sender superview] superview];
+	RankingVoteCell *cell = (RankingVoteCell *)[[sender superview] superview];
 	[self.cellData replaceObjectAtIndex:cell.row withObject:@(sender.value)];
 }
 
 - (IBAction)submitButtonPressed:(UIBarButtonItem *)sender {
 	NSMutableArray *choices = [NSMutableArray array];
+	UIAlertView *alert;
 	
-	if ([self.algorithm isEqualToString:@"rank"]) {
+	if ([self.type isEqualToString:RANKING_VOTE]) {
 		NSMutableArray *rankingValues = [NSMutableArray array];
 		
 		int count = 0;
@@ -180,9 +190,13 @@
 		}
 		
 		if (count == 0) {
-			NSLog(@"You need to rank at least one option.");
+			alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need to rank at least one option."
+											  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+			[alert show];
 		} else if (count > 5) {
-			NSLog(@"You can only rank five or less options.");
+			alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You can only rank five or less options."
+											  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+			[alert show];
 		} else {
 			if ([self checkRankingValues:rankingValues]) {
 				for (int i = 0; i < [rankingValues count]; i++) {
@@ -199,13 +213,18 @@
 				}
 				
 				[self.decision setObject:choices forKey:@"choices"];
-				//[self postDecision];
+				
+				alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to submit your decision?"
+												  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+				[alert show];
 			}
 			else {
-				NSLog(@"Please rank the options from 1 to 5 without duplicates.");
+				alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please rank the options from 1 to 5 without duplicates."
+												  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+				[alert show];
 			}
 		}
-	} else if ([self.algorithm isEqualToString:@"majority"]) {
+	} else if ([self.type isEqualToString:PLURALITY_VOTE]) {
 		NSUInteger row = [self.cellData indexOfObject:@(YES)];
 		if (row != NSNotFound) {
 			NSMutableDictionary *choice = [NSMutableDictionary dictionary];
@@ -217,9 +236,14 @@
 			[choices addObject:choice];
 			
 			[self.decision setObject:choices forKey:@"choices"];
-			//[self postDecision];
+			
+			alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to submit your decision?"
+											  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+			[alert show];
 		} else {
-			NSLog(@"Nothing is selected.");
+			alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Nothing is selected."
+											  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+			[alert show];
 		}
 	}
 }

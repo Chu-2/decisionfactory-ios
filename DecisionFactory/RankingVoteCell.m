@@ -1,14 +1,14 @@
 //
-//  RankVoteCell.m
+//  RankingVoteCell.m
 //  DecisionFactory
 //
 //  Created by RuiQi Yu on 2/27/13.
 //  Copyright (c) 2013 TeamNameFactory. All rights reserved.
 //
 
-#import "RankVoteCell.h"
+#import "RankingVoteCell.h"
 
-@implementation RankVoteCell
+@implementation RankingVoteCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

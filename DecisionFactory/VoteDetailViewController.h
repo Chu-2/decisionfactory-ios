@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *algorithmLabel;
 @property (weak, nonatomic) IBOutlet UITextView *optionView;
 @property (nonatomic) NSInteger voteId;
+@property (nonatomic) NSString *type;
 @end

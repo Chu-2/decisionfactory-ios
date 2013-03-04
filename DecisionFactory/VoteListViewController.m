@@ -27,7 +27,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		self.voteList = [JSON copy];
+		self.voteList = [[NSArray alloc] initWithArray:JSON];
 		[self.tableView reloadData];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);
@@ -62,6 +62,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 		VoteDetailViewController *detailViewController = [segue destinationViewController];
 		detailViewController.title = [vote objectForKey:@"body"];
 		detailViewController.voteId = [[vote objectForKey:@"id"] intValue];
+		detailViewController.type = [vote objectForKey:@"type"];
     }
 }
 
