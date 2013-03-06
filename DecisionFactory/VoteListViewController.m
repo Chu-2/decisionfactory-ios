@@ -8,31 +8,12 @@
 
 #import "VoteListViewController.h"
 #import "VoteDetailViewController.h"
-#import "AFJSONRequestOperation.h"
-
-static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
 @implementation VoteListViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-	NSURL *url = [NSURL URLWithString:[kMyAppBaseURLString stringByAppendingPathComponent:@"membervote/voteList.json"]];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	
-	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		self.voteList = [[NSArray alloc] initWithArray:JSON];
-		[self.tableView reloadData];
-	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-		NSLog(@"Error: %@", error);
-	}];
-	[operation start];
+- (void)setVoteList:(NSArray *)voteList {
+	_voteList = voteList;
+	[self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -47,7 +28,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VoteCell" forIndexPath:indexPath];
 	NSDictionary *vote = [NSDictionary dictionaryWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
 	cell.textLabel.text = [vote objectForKey:@"body"];
 	cell.detailTextLabel.text = [vote objectForKey:@"type"];
@@ -60,8 +41,8 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 		NSDictionary *vote = [NSDictionary dictionaryWithDictionary:[self.voteList objectAtIndex:indexPath.row]];
 		VoteDetailViewController *detailViewController = [segue destinationViewController];
-		detailViewController.title = [vote objectForKey:@"body"];
 		detailViewController.voteId = [[vote objectForKey:@"id"] intValue];
+		detailViewController.voteText = [vote objectForKey:@"body"];
 		detailViewController.type = [vote objectForKey:@"type"];
     }
 }

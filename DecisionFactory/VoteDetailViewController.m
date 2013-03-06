@@ -20,6 +20,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 
 - (void)configureView
 {
+	self.titleLabel.text = self.voteText;
 	self.voteIdLabel.text = [NSString stringWithFormat:@"Vote id: %d", self.voteId];
 	self.typeLabel.text = [NSString stringWithFormat:@"Type: %@", self.type];
 	

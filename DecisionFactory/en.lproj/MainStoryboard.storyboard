@@ -15,7 +15,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DecisionFactory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzw-Tw-l5W">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="cGX-DM-DlC"/>
-                                    <constraint firstAttribute="height" constant="50" id="eCU-QF-eCj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -71,22 +70,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dL5-ni-yOs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="4BD-y7-3XB"/>
-                            <constraint firstItem="KrM-aX-gDu" firstAttribute="bottom" secondItem="rFC-Sl-Led" secondAttribute="bottom" type="default" id="53i-lP-GpY"/>
                             <constraint firstAttribute="trailing" secondItem="rFC-Sl-Led" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DDY-cb-6Ly"/>
                             <constraint firstItem="dL5-ni-yOs" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ELD-ve-BIZ"/>
-                            <constraint firstItem="dL5-ni-yOs" firstAttribute="centerY" secondItem="UfX-6J-An9" secondAttribute="centerY" type="default" id="Edy-CG-BCA"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="top" secondItem="KrM-aX-gDu" secondAttribute="top" type="default" id="JC2-0i-1cP"/>
+                            <constraint firstItem="dL5-ni-yOs" firstAttribute="top" secondItem="kun-Sf-Osy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KC5-XB-GiT"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="leading" secondItem="KrM-aX-gDu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KvL-Aa-43O"/>
-                            <constraint firstItem="dL5-ni-yOs" firstAttribute="top" secondItem="kun-Sf-Osy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OQ5-bF-Qma"/>
+                            <constraint firstItem="PPu-Cx-4nQ" firstAttribute="top" secondItem="UfX-6J-An9" secondAttribute="top" constant="78" id="MYk-T8-jaQ"/>
                             <constraint firstItem="dzw-Tw-l5W" firstAttribute="top" secondItem="UfX-6J-An9" secondAttribute="top" constant="20" symbolic="YES" type="default" id="YfK-2y-l5h"/>
+                            <constraint firstItem="kun-Sf-Osy" firstAttribute="top" secondItem="rFC-Sl-Led" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="You-EX-d95"/>
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="leading" secondItem="PPu-Cx-4nQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="clQ-dt-AMq"/>
                             <constraint firstItem="PPu-Cx-4nQ" firstAttribute="top" secondItem="dzw-Tw-l5W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dWR-ez-B0L"/>
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="leading" secondItem="rFC-Sl-Led" secondAttribute="leading" type="default" id="ebr-bk-vhr"/>
+                            <constraint firstItem="kun-Sf-Osy" firstAttribute="top" secondItem="KrM-aX-gDu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ezl-pd-Tje"/>
                             <constraint firstItem="PPu-Cx-4nQ" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="g8c-QS-tR5"/>
                             <constraint firstItem="KrM-aX-gDu" firstAttribute="leading" secondItem="UfX-6J-An9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gDp-Ei-db4"/>
                             <constraint firstItem="KrM-aX-gDu" firstAttribute="top" secondItem="PPu-Cx-4nQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gUP-d6-1ah"/>
                             <constraint firstAttribute="trailing" secondItem="RtW-eM-Mxr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="huN-Sr-mfo"/>
-                            <constraint firstItem="kun-Sf-Osy" firstAttribute="centerX" secondItem="dzw-Tw-l5W" secondAttribute="centerX" type="default" id="oYM-au-phF"/>
+                            <constraint firstItem="kun-Sf-Osy" firstAttribute="centerX" secondItem="dzw-Tw-l5W" secondAttribute="centerX" type="default" id="nhg-NX-8E3"/>
                             <constraint firstItem="rFC-Sl-Led" firstAttribute="top" secondItem="RtW-eM-Mxr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="puv-Do-evQ"/>
                             <constraint firstItem="dL5-ni-yOs" firstAttribute="centerX" secondItem="kun-Sf-Osy" secondAttribute="centerX" type="default" id="uCh-j8-Cky"/>
                             <constraint firstItem="RtW-eM-Mxr" firstAttribute="top" secondItem="dzw-Tw-l5W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xn5-bT-CsC"/>
@@ -215,17 +215,17 @@
                             <outlet property="delegate" destination="zwZ-Mm-nvB" id="3jP-0m-Mby"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="PTy-C5-lOr"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="PTy-C5-lOr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhL-Mw-IK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-643" y="444"/>
         </scene>
-        <!--Navigation Controller - Vote List-->
+        <!--Navigation Controller - Open Votes-->
         <scene sceneID="11">
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vote List" id="km1-ht-meZ"/>
+                    <tabBarItem key="tabBarItem" title="Open Votes" image="comment.png" id="km1-ht-meZ"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -250,6 +250,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="qXy-Fp-BsF"/>
+                        <segue destination="5WS-3w-axj" kind="relationship" relationship="viewControllers" id="tlH-UV-wdz"/>
                         <segue destination="zwZ-Mm-nvB" kind="relationship" relationship="viewControllers" id="Pe2-jY-GUI"/>
                     </connections>
                 </tabBarController>
@@ -257,16 +258,16 @@
             </objects>
             <point key="canvasLocation" x="-643" y="-234"/>
         </scene>
-        <!--Vote List View Controller - Master-->
+        <!--Open Vote ListTVC - Open Votes-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="VoteListViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" id="12" customClass="OpenVoteListTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" detailTextLabel="Ikj-SS-4tf" style="IBUITableViewCellStyleSubtitle" id="lJ0-d7-vTF">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VoteCell" textLabel="phq-AM-6qj" detailTextLabel="Ikj-SS-4tf" style="IBUITableViewCellStyleSubtitle" id="lJ0-d7-vTF">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -288,7 +289,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="21" kind="push" identifier="ShowVoteDetail" id="jZb-fq-zAk"/>
                                 </connections>
@@ -300,16 +300,58 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Vote List" id="36"/>
+                    <navigationItem key="navigationItem" title="Open Votes" id="36"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="434" y="64"/>
         </scene>
-        <!--Vote Detail View Controller - Detail-->
+        <!--Closed Vote ListTVC - Closed Votes-->
+        <scene sceneID="r94-qc-2if">
+            <objects>
+                <tableViewController id="O8p-ck-OzA" customClass="ClosedVoteListTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7C4-av-f11">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VoteCell" textLabel="8Ub-cz-FBx" detailTextLabel="i3g-Dn-Ogk" style="IBUITableViewCellStyleSubtitle" id="nSr-8v-HOM">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ub-cz-FBx">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3g-Dn-Ogk">
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O8p-ck-OzA" id="Ak4-Rk-9zK"/>
+                            <outlet property="delegate" destination="O8p-ck-OzA" id="fnJ-On-LaX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Closed Votes" id="YnH-xY-H49"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FVC-TR-XB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="434" y="685"/>
+        </scene>
+        <!--Vote Detail View Controller - Vote Detail-->
         <scene sceneID="24">
             <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="VoteDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" id="21" customClass="VoteDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -331,19 +373,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfT-bJ-QJa">
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sLq-98-3WU" firstAttribute="top" secondItem="eRq-E2-ddD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0XJ-am-lf3"/>
-                            <constraint firstAttribute="bottom" secondItem="sLq-98-3WU" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="3RM-ke-esY"/>
                             <constraint firstItem="sLq-98-3WU" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6Fd-OM-aAp"/>
+                            <constraint firstAttribute="bottom" secondItem="sLq-98-3WU" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="God-el-eQS"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="tfT-bJ-QJa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hsg-kg-eaL"/>
                             <constraint firstAttribute="trailing" secondItem="sLq-98-3WU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NIw-7k-JVz"/>
+                            <constraint firstItem="tfT-bJ-QJa" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="QOs-iv-RP4"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R0m-z7-TWk"/>
-                            <constraint firstItem="eRq-E2-ddD" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Yg9-pJ-oNN"/>
+                            <constraint firstItem="tfT-bJ-QJa" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Vha-zP-K66"/>
+                            <constraint firstItem="sLq-98-3WU" firstAttribute="top" secondItem="eRq-E2-ddD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eCt-MV-y3Z"/>
+                            <constraint firstAttribute="trailing" secondItem="tfT-bJ-QJa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hWI-ho-mye"/>
+                            <constraint firstItem="eRq-E2-ddD" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="i4T-JI-2jX"/>
                             <constraint firstItem="eRq-E2-ddD" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iBi-Fb-JQ9"/>
                             <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pRe-qY-58T"/>
                             <constraint firstAttribute="trailing" secondItem="eRq-E2-ddD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qRD-9R-o3t"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="uOs-I3-RyQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Vote Detail" id="26">
@@ -355,6 +405,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="optionView" destination="sLq-98-3WU" id="t1S-8C-Ma9"/>
+                        <outlet property="titleLabel" destination="tfT-bJ-QJa" id="v7W-Ez-s9T"/>
                         <outlet property="typeLabel" destination="eRq-E2-ddD" id="wGZ-zG-Mhj"/>
                         <outlet property="voteIdLabel" destination="27" id="gzm-nf-J9b"/>
                     </connections>
@@ -363,7 +414,7 @@
             </objects>
             <point key="canvasLocation" x="871" y="64"/>
         </scene>
-        <!--Cast VoteTVC - Vote Title-->
+        <!--Cast VoteTVC - Cast Vote-->
         <scene sceneID="y38-a9-SGc">
             <objects>
                 <tableViewController id="Zde-Uw-FHo" customClass="CastVoteTVC" sceneMemberID="viewController">
@@ -439,7 +490,8 @@
                             <outlet property="delegate" destination="Zde-Uw-FHo" id="g6K-Up-cdw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Vote Title" id="qUs-1T-SRh">
+                    <navigationItem key="navigationItem" title="Cast Vote" id="qUs-1T-SRh">
+                        <barButtonItem key="backBarButtonItem" title="Vote Detail" id="pQT-bN-7QV"/>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="brc-eL-6E3">
                             <connections>
                                 <action selector="submitButtonPressed:" destination="Zde-Uw-FHo" id="oTd-By-5UP"/>
@@ -451,7 +503,31 @@
             </objects>
             <point key="canvasLocation" x="1326" y="64"/>
         </scene>
+        <!--Navigation Controller - Closed Votes-->
+        <scene sceneID="nkk-93-wa7">
+            <objects>
+                <navigationController id="5WS-3w-axj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Closed Votes" image="comment_check.png" id="3bj-P4-rLT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2jA-a1-Ykr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O8p-ck-OzA" kind="relationship" relationship="rootViewController" id="76l-0l-flE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nbq-8I-Hmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1" y="685"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="comment.png" width="30" height="30"/>
+        <image name="comment_check.png" width="30" height="30"/>
+        <image name="gear.png" width="30" height="30"/>
+    </resources>
     <classes>
         <class className="CastVoteTVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CastVoteTVC.h"/>
@@ -459,6 +535,9 @@
                 <relationship kind="action" name="sliderValueChanged:" candidateClass="UISlider"/>
                 <relationship kind="action" name="submitButtonPressed:" candidateClass="UIBarButtonItem"/>
             </relationships>
+        </class>
+        <class className="ClosedVoteListTVC" superclassName="VoteListViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClosedVoteListTVC.h"/>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
@@ -470,6 +549,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OpenVoteListTVC" superclassName="VoteListViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OpenVoteListTVC.h"/>
         </class>
         <class className="RankingVoteCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingVoteCell.h"/>
@@ -484,6 +566,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VoteDetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="optionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="voteIdLabel" candidateClass="UILabel"/>
             </relationships>
