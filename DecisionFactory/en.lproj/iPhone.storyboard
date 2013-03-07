@@ -226,7 +226,7 @@
             <objects>
                 <navigationController id="3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Open Votes" image="comment.png" id="km1-ht-meZ"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -235,13 +235,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-1" y="-234"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="A51-dD-3yM">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="SSB-hT-CZM" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cjt-i0-dMG"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TC3-iF-PzY">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -263,7 +262,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="" id="12" customClass="OpenVoteListTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -304,7 +303,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="64"/>
+            <point key="canvasLocation" x="434" y="-234"/>
         </scene>
         <!--Closed Vote ListTVC - Closed Votes-->
         <scene sceneID="r94-qc-2if">
@@ -346,14 +345,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVC-TR-XB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="685"/>
+            <point key="canvasLocation" x="434" y="444"/>
         </scene>
         <!--Vote Detail View Controller - Vote Detail-->
         <scene sceneID="24">
             <objects>
                 <viewController storyboardIdentifier="" id="21" customClass="VoteDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Vote id:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
@@ -412,14 +411,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="64"/>
+            <point key="canvasLocation" x="885" y="-234"/>
         </scene>
         <!--Cast VoteTVC - Cast Vote-->
         <scene sceneID="y38-a9-SGc">
             <objects>
                 <tableViewController id="Zde-Uw-FHo" customClass="CastVoteTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="3vm-v5-l8e">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -498,10 +497,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="SSB-hT-CZM" kind="modal" identifier="VoteSubmitted" id="t6i-rC-0V0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBR-AM-WHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="64"/>
+            <point key="canvasLocation" x="1336" y="-234"/>
         </scene>
         <!--Navigation Controller - Closed Votes-->
         <scene sceneID="nkk-93-wa7">
@@ -520,7 +522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbq-8I-Hmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="685"/>
+            <point key="canvasLocation" x="-1" y="444"/>
         </scene>
     </scenes>
     <resources>
@@ -580,4 +582,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="t6i-rC-0V0"/>
+    </inferredMetricsTieBreakers>
 </document>

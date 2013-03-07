@@ -19,7 +19,7 @@
 		5268294916CFC20B00722BA6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268294816CFC20B00722BA6 /* Default.png */; };
 		5268294B16CFC20B00722BA6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268294A16CFC20B00722BA6 /* Default@2x.png */; };
 		5268294D16CFC20B00722BA6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268294C16CFC20B00722BA6 /* Default-568h@2x.png */; };
-		5268295016CFC20B00722BA6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5268294E16CFC20B00722BA6 /* MainStoryboard.storyboard */; };
+		5268295016CFC20B00722BA6 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5268294E16CFC20B00722BA6 /* iPhone.storyboard */; };
 		5268295316CFC20B00722BA6 /* VoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5268295216CFC20B00722BA6 /* VoteListViewController.m */; };
 		5268295616CFC20B00722BA6 /* VoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5268295516CFC20B00722BA6 /* VoteDetailViewController.m */; };
 		5268295E16CFC25700722BA6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5268295D16CFC25700722BA6 /* LoginViewController.m */; };
@@ -37,6 +37,7 @@
 		52B152CB16E55D6300E7CF71 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B152CA16E55D6300E7CF71 /* gear.png */; };
 		52B152CD16E55E4B00E7CF71 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B152CC16E55E4B00E7CF71 /* comment.png */; };
 		52B152CF16E55F0000E7CF71 /* comment_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B152CE16E55F0000E7CF71 /* comment_check.png */; };
+		52B75CB516E946F200550BF6 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B75CB416E946F200550BF6 /* iPad.storyboard */; };
 		52D723D316E493920032E97C /* MyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D723D216E493920032E97C /* MyAPIClient.m */; };
 		52E4FE1316E757B100B48B60 /* OpenVoteListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E4FE1216E757B100B48B60 /* OpenVoteListTVC.m */; };
 		52E4FE1616E75D7800B48B60 /* ClosedVoteListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E4FE1516E75D7800B48B60 /* ClosedVoteListTVC.m */; };
@@ -62,7 +63,7 @@
 		5268294816CFC20B00722BA6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5268294A16CFC20B00722BA6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5268294C16CFC20B00722BA6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5268294F16CFC20B00722BA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5268294F16CFC20B00722BA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		5268295116CFC20B00722BA6 /* VoteListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoteListViewController.h; sourceTree = "<group>"; };
 		5268295216CFC20B00722BA6 /* VoteListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoteListViewController.m; sourceTree = "<group>"; };
 		5268295416CFC20B00722BA6 /* VoteDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoteDetailViewController.h; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		52B152CA16E55D6300E7CF71 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		52B152CC16E55E4B00E7CF71 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		52B152CE16E55F0000E7CF71 /* comment_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment_check.png; sourceTree = "<group>"; };
+		52B75CB416E946F200550BF6 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		52D723D116E493920032E97C /* MyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAPIClient.h; sourceTree = "<group>"; };
 		52D723D216E493920032E97C /* MyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAPIClient.m; sourceTree = "<group>"; };
 		52E4FE1116E757B100B48B60 /* OpenVoteListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenVoteListTVC.h; sourceTree = "<group>"; };
@@ -149,7 +151,8 @@
 		5268293C16CFC20B00722BA6 /* DecisionFactory */ = {
 			isa = PBXGroup;
 			children = (
-				5268294E16CFC20B00722BA6 /* MainStoryboard.storyboard */,
+				52B75CB416E946F200550BF6 /* iPad.storyboard */,
+				5268294E16CFC20B00722BA6 /* iPhone.storyboard */,
 				520F49B816DEB21C00C56EC5 /* CastVoteTVC.h */,
 				520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */,
 				5268294516CFC20B00722BA6 /* DDMAppDelegate.h */,
@@ -275,10 +278,11 @@
 				5268294916CFC20B00722BA6 /* Default.png in Resources */,
 				5268294B16CFC20B00722BA6 /* Default@2x.png in Resources */,
 				5268294D16CFC20B00722BA6 /* Default-568h@2x.png in Resources */,
-				5268295016CFC20B00722BA6 /* MainStoryboard.storyboard in Resources */,
+				5268295016CFC20B00722BA6 /* iPhone.storyboard in Resources */,
 				52B152CB16E55D6300E7CF71 /* gear.png in Resources */,
 				52B152CD16E55E4B00E7CF71 /* comment.png in Resources */,
 				52B152CF16E55F0000E7CF71 /* comment_check.png in Resources */,
+				52B75CB516E946F200550BF6 /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,12 +327,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		5268294E16CFC20B00722BA6 /* MainStoryboard.storyboard */ = {
+		5268294E16CFC20B00722BA6 /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5268294F16CFC20B00722BA6 /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -398,6 +402,7 @@
 				INFOPLIST_FILE = "DecisionFactory/DecisionFactory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,6 +415,7 @@
 				INFOPLIST_FILE = "DecisionFactory/DecisionFactory-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

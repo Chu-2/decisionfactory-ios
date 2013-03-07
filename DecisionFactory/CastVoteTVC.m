@@ -153,10 +153,20 @@
 	
 	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"" parameters:self.decision];
 	
+	UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Decision submitted."
+													 delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+	UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Submission failed."
+												  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		NSLog(@"%@", response);
+		
+		[success show];
+		[self performSegueWithIdentifier:@"VoteSubmitted" sender:self];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);
+		
+		[fail show];
 	}];
 	
 	[operation start];
@@ -164,7 +174,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-		//[self postDecision];
+		[self postDecision];
 	}
 }
 
