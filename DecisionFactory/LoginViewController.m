@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 
-static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
+static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-root/";
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -34,6 +34,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	[self.view addSubview:self.activityIndicatorView];
 }
 
+// UITextField delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	return YES;
@@ -42,11 +43,15 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (IBAction)loginButtonPressed {
 	[self.activityIndicatorView startAnimating];
 	
-	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kMyAppBaseURLString]];
+	// Dismiss the keyboard
+	if ([self.username isFirstResponder]) [self.username resignFirstResponder];
+	else if ([self.password isFirstResponder]) [self.password resignFirstResponder];
+	
+	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURLString]];
 	
 	NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.username text], @"username", [self.password text], @"password", nil];
 	
-	NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"login.php" parameters:params];
+	NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"api-token-auth/" parameters:params];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		[self.activityIndicatorView stopAnimating];
@@ -67,15 +72,14 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 		}
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		[self.activityIndicatorView stopAnimating];
-		self.resultLabel.text = @"Connection failed.";
+		if ([JSON objectForKey:@"username"]) self.resultLabel.text = @"Username is required.";
+		else if ([JSON objectForKey:@"password"]) self.resultLabel.text = @"Password is required.";
+		else if ([JSON objectForKey:@"non_field_errors"]) self.resultLabel.text = @"Username or password is incorrect.";
+		else self.resultLabel.text = @"Connection field.";
 		NSLog(@"Error: %@", error);
 	}];
 	
 	[operation start];
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-	return NO;
 }
 
 @end

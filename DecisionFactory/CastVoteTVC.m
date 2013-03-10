@@ -41,15 +41,6 @@
 	return _decision;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -103,19 +94,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if([self.type isEqualToString:PLURALITY_VOTE]) {
-		for (UITableViewCell *cell in [tableView visibleCells]) {
-			cell.accessoryType = UITableViewCellAccessoryNone;
-		}
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
-		if ([self.cellData indexOfObject:@(YES)] != NSNotFound) {
-			[self.cellData replaceObjectAtIndex:[self.cellData indexOfObject:@(YES)] withObject:@(NO)];
+		NSUInteger index = [self.cellData indexOfObject:@(YES)];
+		if (index != NSNotFound) {
+			self.cellData[index] = @(NO);
+			UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+			oldCell.accessoryType = UITableViewCellAccessoryNone;
 		}
-		[self.cellData replaceObjectAtIndex:indexPath.row withObject:@(YES)];
+		self.cellData[indexPath.row] = @(YES);
 		
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
 }
 
@@ -151,12 +141,11 @@
 	
 	MyAPIClient *client = [MyAPIClient sharedClient];
 	
-	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"" parameters:self.decision];
+	NSString *path = [NSString stringWithFormat:@"membervote/%d/", self.voteId];
+	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:path parameters:self.decision];
 	
-	UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Decision submitted."
-													 delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-	UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Submission failed."
-												  delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+	UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Decision submitted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+	UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Submission failed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		NSLog(@"%@", response);

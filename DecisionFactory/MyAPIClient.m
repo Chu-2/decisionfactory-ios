@@ -9,7 +9,7 @@
 #import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
+static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-root/";
 
 @implementation MyAPIClient
 
@@ -17,7 +17,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	static MyAPIClient *_sharedClient = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		_sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kMyAppBaseURLString]];
+		_sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:baseURLString]];
 	});
 	return _sharedClient;
 }
@@ -27,7 +27,11 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	if (!self) return nil;
 	
 	[self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+	
+	NSString *token = [NSString stringWithFormat:@"Token %@", [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] objectForKey:@"user_token"]];
+	[self setDefaultHeader:@"Authorization" value:token];
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
+	
 	self.parameterEncoding = AFJSONParameterEncoding;
 	
 	return self;

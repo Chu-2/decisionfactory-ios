@@ -7,9 +7,8 @@
 //
 
 #import "OpenVoteListTVC.h"
+#import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
-
-static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
 @implementation OpenVoteListTVC
 
@@ -17,8 +16,9 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 {
     [super viewDidLoad];
 	
-	NSURL *url = [NSURL URLWithString:[kMyAppBaseURLString stringByAppendingPathComponent:@"membervote/voteList.json"]];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	MyAPIClient *client = [MyAPIClient sharedClient];
+	
+	NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:@"membervote/" parameters:nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		NSMutableArray *list = [NSMutableArray array];

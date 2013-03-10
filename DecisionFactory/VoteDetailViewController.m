@@ -8,9 +8,8 @@
 
 #import "VoteDetailViewController.h"
 #import "CastVoteTVC.h"
+#import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
-
-static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/cis422/mobile/";
 
 @interface VoteDetailViewController ()
 @property (strong, nonatomic) NSArray *optionList;
@@ -34,9 +33,11 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSURL *baseURL = [NSURL URLWithString:kMyAppBaseURLString];
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"vote/%d.json", self.voteId] relativeToURL:baseURL];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	
+	MyAPIClient *client = [MyAPIClient sharedClient];
+	
+	NSString *path = [NSString stringWithFormat:@"membervote/%d/options/", self.voteId];
+	NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:path parameters:nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		self.optionList = [[NSArray alloc] initWithArray:JSON];
@@ -44,6 +45,7 @@ static NSString * const kMyAppBaseURLString = @"http://ix.cs.uoregon.edu/~ruiqi/
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);
 	}];
+	
 	[operation start];
 }
 

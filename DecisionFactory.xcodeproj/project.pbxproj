@@ -10,6 +10,7 @@
 		520958E516E6CEC600D13637 /* VoteResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520958E416E6CEC600D13637 /* VoteResultsViewController.m */; };
 		520F49B716DEAE6700C56EC5 /* RankingVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B616DEAE6700C56EC5 /* RankingVoteCell.m */; };
 		520F49BA16DEB21C00C56EC5 /* CastVoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */; };
+		5266005D16EC84EB00443420 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5266005C16EC84EB00443420 /* SettingsViewController.m */; };
 		5268293716CFC20B00722BA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293616CFC20B00722BA6 /* UIKit.framework */; };
 		5268293916CFC20B00722BA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293816CFC20B00722BA6 /* Foundation.framework */; };
 		5268293B16CFC20B00722BA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268293A16CFC20B00722BA6 /* CoreGraphics.framework */; };
@@ -38,6 +39,9 @@
 		52B152CD16E55E4B00E7CF71 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B152CC16E55E4B00E7CF71 /* comment.png */; };
 		52B152CF16E55F0000E7CF71 /* comment_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B152CE16E55F0000E7CF71 /* comment_check.png */; };
 		52B75CB516E946F200550BF6 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B75CB416E946F200550BF6 /* iPad.storyboard */; };
+		52B75CB916E9569F00550BF6 /* comment_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B75CB616E9569F00550BF6 /* comment_check@2x.png */; };
+		52B75CBA16E9569F00550BF6 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B75CB716E9569F00550BF6 /* comment@2x.png */; };
+		52B75CBB16E9569F00550BF6 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B75CB816E9569F00550BF6 /* gear@2x.png */; };
 		52D723D316E493920032E97C /* MyAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D723D216E493920032E97C /* MyAPIClient.m */; };
 		52E4FE1316E757B100B48B60 /* OpenVoteListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E4FE1216E757B100B48B60 /* OpenVoteListTVC.m */; };
 		52E4FE1616E75D7800B48B60 /* ClosedVoteListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E4FE1516E75D7800B48B60 /* ClosedVoteListTVC.m */; };
@@ -50,6 +54,8 @@
 		520F49B616DEAE6700C56EC5 /* RankingVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVoteCell.m; sourceTree = "<group>"; };
 		520F49B816DEB21C00C56EC5 /* CastVoteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastVoteTVC.h; sourceTree = "<group>"; };
 		520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastVoteTVC.m; sourceTree = "<group>"; };
+		5266005B16EC84EB00443420 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5266005C16EC84EB00443420 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5268293316CFC20B00722BA6 /* DecisionFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DecisionFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5268293616CFC20B00722BA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5268293816CFC20B00722BA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +101,9 @@
 		52B152CC16E55E4B00E7CF71 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		52B152CE16E55F0000E7CF71 /* comment_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment_check.png; sourceTree = "<group>"; };
 		52B75CB416E946F200550BF6 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		52B75CB616E9569F00550BF6 /* comment_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment_check@2x.png"; sourceTree = "<group>"; };
+		52B75CB716E9569F00550BF6 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
+		52B75CB816E9569F00550BF6 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
 		52D723D116E493920032E97C /* MyAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAPIClient.h; sourceTree = "<group>"; };
 		52D723D216E493920032E97C /* MyAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAPIClient.m; sourceTree = "<group>"; };
 		52E4FE1116E757B100B48B60 /* OpenVoteListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenVoteListTVC.h; sourceTree = "<group>"; };
@@ -159,6 +168,8 @@
 				5268294616CFC20B00722BA6 /* DDMAppDelegate.m */,
 				5268295C16CFC25700722BA6 /* LoginViewController.h */,
 				5268295D16CFC25700722BA6 /* LoginViewController.m */,
+				5266005B16EC84EB00443420 /* SettingsViewController.h */,
+				5266005C16EC84EB00443420 /* SettingsViewController.m */,
 				52D723D116E493920032E97C /* MyAPIClient.h */,
 				52D723D216E493920032E97C /* MyAPIClient.m */,
 				520F49B516DEAE6700C56EC5 /* RankingVoteCell.h */,
@@ -182,16 +193,19 @@
 		5268293D16CFC20B00722BA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52B152CC16E55E4B00E7CF71 /* comment.png */,
+				52B75CB716E9569F00550BF6 /* comment@2x.png */,
+				52B152CE16E55F0000E7CF71 /* comment_check.png */,
+				52B75CB616E9569F00550BF6 /* comment_check@2x.png */,
 				5268293E16CFC20B00722BA6 /* DecisionFactory-Info.plist */,
-				5268293F16CFC20B00722BA6 /* InfoPlist.strings */,
-				5268294216CFC20B00722BA6 /* main.m */,
 				5268294416CFC20B00722BA6 /* DecisionFactory-Prefix.pch */,
+				5268294C16CFC20B00722BA6 /* Default-568h@2x.png */,
 				5268294816CFC20B00722BA6 /* Default.png */,
 				5268294A16CFC20B00722BA6 /* Default@2x.png */,
-				5268294C16CFC20B00722BA6 /* Default-568h@2x.png */,
-				52B152CC16E55E4B00E7CF71 /* comment.png */,
-				52B152CE16E55F0000E7CF71 /* comment_check.png */,
 				52B152CA16E55D6300E7CF71 /* gear.png */,
+				52B75CB816E9569F00550BF6 /* gear@2x.png */,
+				5268293F16CFC20B00722BA6 /* InfoPlist.strings */,
+				5268294216CFC20B00722BA6 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,6 +297,9 @@
 				52B152CD16E55E4B00E7CF71 /* comment.png in Resources */,
 				52B152CF16E55F0000E7CF71 /* comment_check.png in Resources */,
 				52B75CB516E946F200550BF6 /* iPad.storyboard in Resources */,
+				52B75CB916E9569F00550BF6 /* comment_check@2x.png in Resources */,
+				52B75CBA16E9569F00550BF6 /* comment@2x.png in Resources */,
+				52B75CBB16E9569F00550BF6 /* gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +330,7 @@
 				520958E516E6CEC600D13637 /* VoteResultsViewController.m in Sources */,
 				52E4FE1316E757B100B48B60 /* OpenVoteListTVC.m in Sources */,
 				52E4FE1616E75D7800B48B60 /* ClosedVoteListTVC.m in Sources */,
+				5266005D16EC84EB00443420 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
