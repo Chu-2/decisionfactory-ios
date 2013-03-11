@@ -7,6 +7,8 @@
 //
 
 #import "VoteResultsViewController.h"
+#import "MyAPIClient.h"
+#import "AFJSONRequestOperation.h"
 
 @interface VoteResultsViewController ()
 
@@ -17,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
 }
 
 @end

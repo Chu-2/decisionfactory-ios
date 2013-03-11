@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface VoteResultsViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (nonatomic) NSInteger voteId;
+@property (nonatomic) NSString *voteText;
+@property (nonatomic) NSString *type;
 @end

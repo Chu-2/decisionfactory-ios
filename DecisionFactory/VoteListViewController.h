@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VoteListViewController : UITableViewController
+@interface VoteListViewController : UITableViewController <UIAlertViewDelegate>
 @property (strong, nonatomic) NSArray *voteList;
 @end

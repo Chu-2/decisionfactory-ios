@@ -66,13 +66,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSDictionary *option = [NSDictionary dictionaryWithDictionary:[self.optionList objectAtIndex:indexPath.row]];
+	NSDictionary *option = self.optionList[indexPath.row];
 	
 	if ([self.type isEqualToString:RANKING_VOTE]) {
 		RankingVoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingVoteCell" forIndexPath:indexPath];
 		cell.optionText.text = [option objectForKey:@"body"];
 		
-		float sliderValue = [[self.cellData objectAtIndex:indexPath.row] floatValue];
+		float sliderValue = [self.cellData[indexPath.row] floatValue];
 		cell.slider.value = sliderValue;
 		cell.sliderValueLabel.text = [NSString stringWithFormat:@"%d", (int)round(sliderValue)];
 		
@@ -82,7 +82,7 @@
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PluralityVoteCell" forIndexPath:indexPath];
 		cell.textLabel.text = [option objectForKey:@"body"];
 		
-		BOOL checked = [[self.cellData objectAtIndex:indexPath.row] boolValue];
+		BOOL checked = [self.cellData[indexPath.row] boolValue];
 		cell.accessoryType = (checked) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 		
 		return cell;
@@ -113,12 +113,12 @@
 	NSMutableArray *check = [NSMutableArray arrayWithObjects:@(NO), @(NO), @(NO), @(NO), @(NO), nil];
 	
 	for (int i = 0; i < [rankingValues count]; i++) {
-		NSUInteger rankingValue = [[rankingValues objectAtIndex:i] intValue];
+		NSUInteger rankingValue = [rankingValues[i] intValue];
 		
 		if (rankingValue != 0) {
-			if ([[check objectAtIndex:(rankingValue - 1)] boolValue]) {
+			if ([check[rankingValue - 1] boolValue]) {
 				return NO;
-			} else [check replaceObjectAtIndex:(rankingValue - 1) withObject:@(YES)];
+			} else check[rankingValue - 1] = @(YES);
 		}
 	}
 	
@@ -126,8 +126,6 @@
 }
 
 - (void)postDecision {
-	[self.decision setObject:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] objectForKey:@"user_token"] forKey:@"token"];
-	
 	/*// NSDictionary to JSON using Apple's JSON parser
 	NSError *error;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.decision options:NSJSONWritingPrettyPrinted error:&error];
@@ -181,7 +179,7 @@
 		
 		int count = 0;
 		for (int i = 0; i < [self.cellData count]; i++) {
-			NSUInteger rankingValue = round([[self.cellData objectAtIndex:i] floatValue]);
+			NSUInteger rankingValue = round([self.cellData[i] floatValue]);
 			
 			[rankingValues insertObject:@(rankingValue) atIndex:i];
 			
@@ -199,10 +197,10 @@
 		} else {
 			if ([self checkRankingValues:rankingValues]) {
 				for (int i = 0; i < [rankingValues count]; i++) {
-					NSUInteger value = [[rankingValues objectAtIndex:i] intValue];
+					NSUInteger value = [rankingValues[i] intValue];
 					if (value != 0) {
 						NSMutableDictionary *choice = [NSMutableDictionary dictionary];
-						NSDictionary *option = [NSDictionary dictionaryWithDictionary:[self.optionList objectAtIndex:i]];
+						NSDictionary *option = self.optionList[i];
 						
 						[choice setObject:[option objectForKey:@"id"] forKey:@"option_id"];
 						[choice setObject:@(value) forKey:@"value"];
@@ -227,7 +225,7 @@
 		NSUInteger row = [self.cellData indexOfObject:@(YES)];
 		if (row != NSNotFound) {
 			NSMutableDictionary *choice = [NSMutableDictionary dictionary];
-			NSDictionary *option = [NSDictionary dictionaryWithDictionary:[self.optionList objectAtIndex:row]];
+			NSDictionary *option = self.optionList[row];
 			
 			[choice setObject:[option objectForKey:@"id"] forKey:@"option_id"];
 			[choice setObject:@(1) forKey:@"value"];

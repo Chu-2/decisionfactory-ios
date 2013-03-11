@@ -20,12 +20,13 @@
 - (void)configureView
 {
 	self.titleLabel.text = self.voteText;
-	self.voteIdLabel.text = [NSString stringWithFormat:@"Vote id: %d", self.voteId];
 	self.typeLabel.text = [NSString stringWithFormat:@"Type: %@", self.type];
 	
+	int i = 1;
 	NSString *displayText = @"Options:\n";
 	for (NSDictionary *option in self.optionList) {
-		displayText = [displayText stringByAppendingFormat:@"%@: %@\n", [option objectForKey:@"id"], [option objectForKey:@"body"]];
+		displayText = [displayText stringByAppendingFormat:@"%d. %@\n", i, option[@"body"]];
+		i++;
 	}
 	self.optionView.text = displayText;
 }

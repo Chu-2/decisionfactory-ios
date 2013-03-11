@@ -14,6 +14,13 @@
 {
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 	
+	if (launchOptions != nil) {
+		NSDictionary *dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil) {
+			NSLog(@"Launched from push notification: %@", dictionary);
+		}
+	}
+	
     return YES;
 }
 							
@@ -44,8 +51,18 @@
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+	NSLog(@"Recieved notification: %@", userInfo);
+}
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-	// NSLog(@"My token is: %@", deviceToken);
+	NSString *token = [deviceToken description];
+	
+	token = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+	
+	[[NSUserDefaults standardUserDefaults] setObject:token forKey:@"DeviceToken"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

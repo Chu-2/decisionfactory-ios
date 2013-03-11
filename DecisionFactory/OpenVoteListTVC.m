@@ -26,6 +26,7 @@
 			if (![JSON[i][@"has_cast"] boolValue]) [list addObject:JSON[i]];
 		}
 		self.voteList = [[NSArray alloc] initWithArray:list];
+		[self.refreshControl endRefreshing];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);
 	}];

@@ -19,7 +19,6 @@
 	if (buttonIndex == 1) {
 		[self performSegueWithIdentifier:@"Logout" sender:self];
 	}
-
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -28,6 +27,14 @@
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you really want to log out?"
 													   delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
 		[alert show];
+	}
+	
+	if (indexPath.row == 0 && indexPath.section == 1) {
+		NSURL *url = [NSURL URLWithString:@"http://cis422ddm.herokuapp.com/"];
+		
+		if (![[UIApplication sharedApplication] openURL:url]) {
+			NSLog(@"Failed to open url: %@", [url description]);
+		}
 	}
 }
 
