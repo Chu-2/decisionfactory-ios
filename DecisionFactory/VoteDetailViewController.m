@@ -41,7 +41,11 @@
 	NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:path parameters:nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		self.optionList = [[NSArray alloc] initWithArray:JSON];
+		
+		NSArray *sortedList = [JSON sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+			return [[a objectForKey:@"id"] compare:[b objectForKey:@"id"]];
+		}];
+		self.optionList = [[NSArray alloc] initWithArray:sortedList];
 		[self configureView];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);

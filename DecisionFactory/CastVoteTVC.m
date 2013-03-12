@@ -13,7 +13,7 @@
 
 @interface CastVoteTVC ()
 @property (strong, nonatomic) NSMutableArray *cellData;
-@property (strong, nonatomic) NSMutableDictionary *decision;
+@property (strong, nonatomic) NSArray *decision;
 @end
 
 @implementation CastVoteTVC
@@ -34,11 +34,6 @@
 		}
 	}
 	return _cellData;
-}
-
-- (NSDictionary *)decision {
-	if (!_decision) _decision = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@(self.voteId), @"id", nil];
-	return _decision;
 }
 
 - (void)viewDidLoad
@@ -126,7 +121,7 @@
 }
 
 - (void)postDecision {
-	/*// NSDictionary to JSON using Apple's JSON parser
+	// NSDictionary to JSON using Apple's JSON parser
 	NSError *error;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.decision options:NSJSONWritingPrettyPrinted error:&error];
 	
@@ -135,18 +130,19 @@
 	} else {
 		NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 		NSLog(@"%@", jsonString);
-	}*/
+	}
 	
 	MyAPIClient *client = [MyAPIClient sharedClient];
 	
 	NSString *path = [NSString stringWithFormat:@"membervote/%d/", self.voteId];
-	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:path parameters:self.decision];
+	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:path parameters:nil];
+	
+	[request setHTTPBody:jsonData];
 	
 	UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Decision submitted." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Submission failed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		NSLog(@"%@", response);
 		
 		[success show];
 		[self performSegueWithIdentifier:@"VoteSubmitted" sender:self];
@@ -202,14 +198,15 @@
 						NSMutableDictionary *choice = [NSMutableDictionary dictionary];
 						NSDictionary *option = self.optionList[i];
 						
-						[choice setObject:[option objectForKey:@"id"] forKey:@"option_id"];
+						[choice setObject:@(self.voteId) forKey:@"membervote"];
+						[choice setObject:[option objectForKey:@"id"] forKey:@"option"];
 						[choice setObject:@(value) forKey:@"value"];
 						
 						[choices addObject:choice];
 					}
 				}
 				
-				[self.decision setObject:choices forKey:@"choices"];
+				self.decision = [[NSArray alloc] initWithArray:choices];
 				
 				alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to submit your decision?"
 												  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -227,12 +224,13 @@
 			NSMutableDictionary *choice = [NSMutableDictionary dictionary];
 			NSDictionary *option = self.optionList[row];
 			
-			[choice setObject:[option objectForKey:@"id"] forKey:@"option_id"];
+			[choice setObject:@(self.voteId) forKey:@"membervote"];
+			[choice setObject:[option objectForKey:@"id"] forKey:@"option"];
 			[choice setObject:@(1) forKey:@"value"];
 			
 			[choices addObject:choice];
 			
-			[self.decision setObject:choices forKey:@"choices"];
+			self.decision = [[NSArray alloc] initWithArray:choices];
 			
 			alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to submit your decision?"
 											  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];

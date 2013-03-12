@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 
@@ -34,6 +35,22 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 	[self.view addSubview:self.activityIndicatorView];
 }
 
+- (void)sendDeviceToken {
+	MyAPIClient *client = [MyAPIClient sharedClient];
+	
+	NSDictionary *params = @{ @"DeviceToken": [[NSUserDefaults standardUserDefaults] stringForKey:@"DeviceToken"] };
+	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"" parameters:params];
+	
+	NSLog(@"%@", params);
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		NSLog(@"%@", JSON);
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		NSLog(@"Error: %@", error);
+	}];
+	
+	[operation start];
+}
+
 // UITextField delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
@@ -49,7 +66,7 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 	
 	AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURLString]];
 	
-	NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.username text], @"username", [self.password text], @"password", nil];
+	NSDictionary *params = @{ @"username": [self.username text], @"password": [self.password text] };
 	
 	NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"api-token-auth/" parameters:params];
 	

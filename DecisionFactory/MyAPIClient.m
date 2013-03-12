@@ -32,7 +32,7 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 	[self setDefaultHeader:@"Authorization" value:token];
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
 	
-	self.parameterEncoding = AFJSONParameterEncoding;
+	// self.parameterEncoding = AFJSONParameterEncoding;
 	
 	return self;
 }

@@ -8,11 +8,14 @@
 
 #import "VoteListViewController.h"
 #import "VoteDetailViewController.h"
+#import "VoteResultsViewController.h"
 
 @implementation VoteListViewController
 
 - (void)setVoteList:(NSArray *)voteList {
-	_voteList = voteList;
+	_voteList = [voteList sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+		return [[a objectForKey:@"id"] compare:[b objectForKey:@"id"]];
+	}];
 	[self.tableView reloadData];
 }
 
@@ -20,10 +23,10 @@
 	UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStyleBordered target:self action:@selector(logoutButtonPressed:)];
 	self.navigationItem.rightBarButtonItem = logoutButton;
 	
-	[self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+	[self.refreshControl addTarget:self action:@selector(refreshList) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)refresh {
+- (void)refreshList {
 	[self.refreshControl beginRefreshing];
 	[self viewDidLoad];
 }
@@ -57,6 +60,14 @@
 		detailViewController.voteText = [vote objectForKey:@"body"];
 		detailViewController.type = [vote objectForKey:@"type"];
     }
+	else if ([[segue identifier] isEqualToString:@"ShowVoteResults"]) {
+		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+		NSDictionary *vote = self.voteList[indexPath.row];
+		VoteResultsViewController *resultsViewController = [segue destinationViewController];
+		resultsViewController.voteId = [[vote objectForKey:@"id"] intValue];
+		resultsViewController.voteText = [vote objectForKey:@"body"];
+		resultsViewController.type = [vote objectForKey:@"type"];
+	}
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
