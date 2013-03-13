@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		520958E516E6CEC600D13637 /* VoteResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520958E416E6CEC600D13637 /* VoteResultsViewController.m */; };
+		520D788B16EFE80200F95F28 /* VoteResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 520D788A16EFE80200F95F28 /* VoteResultsView.m */; };
 		520F49B716DEAE6700C56EC5 /* RankingVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B616DEAE6700C56EC5 /* RankingVoteCell.m */; };
 		520F49BA16DEB21C00C56EC5 /* CastVoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 520F49B916DEB21C00C56EC5 /* CastVoteTVC.m */; };
 		5266005D16EC84EB00443420 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5266005C16EC84EB00443420 /* SettingsViewController.m */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		520958E316E6CEC600D13637 /* VoteResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteResultsViewController.h; sourceTree = "<group>"; };
 		520958E416E6CEC600D13637 /* VoteResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteResultsViewController.m; sourceTree = "<group>"; };
+		520D788916EFE80200F95F28 /* VoteResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteResultsView.h; sourceTree = "<group>"; };
+		520D788A16EFE80200F95F28 /* VoteResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteResultsView.m; sourceTree = "<group>"; };
 		520F49B516DEAE6700C56EC5 /* RankingVoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingVoteCell.h; sourceTree = "<group>"; };
 		520F49B616DEAE6700C56EC5 /* RankingVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVoteCell.m; sourceTree = "<group>"; };
 		520F49B816DEB21C00C56EC5 /* CastVoteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastVoteTVC.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				52E4FE1516E75D7800B48B60 /* ClosedVoteListTVC.m */,
 				5268295416CFC20B00722BA6 /* VoteDetailViewController.h */,
 				5268295516CFC20B00722BA6 /* VoteDetailViewController.m */,
+				520D788916EFE80200F95F28 /* VoteResultsView.h */,
+				520D788A16EFE80200F95F28 /* VoteResultsView.m */,
 				520958E316E6CEC600D13637 /* VoteResultsViewController.h */,
 				520958E416E6CEC600D13637 /* VoteResultsViewController.m */,
 				5268295F16CFD9DD00722BA6 /* AFNetworking */,
@@ -331,6 +336,7 @@
 				52E4FE1316E757B100B48B60 /* OpenVoteListTVC.m in Sources */,
 				52E4FE1616E75D7800B48B60 /* ClosedVoteListTVC.m in Sources */,
 				5266005D16EC84EB00443420 /* SettingsViewController.m in Sources */,
+				520D788B16EFE80200F95F28 /* VoteResultsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

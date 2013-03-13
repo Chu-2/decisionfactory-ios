@@ -59,6 +59,7 @@
 		detailViewController.voteId = [[vote objectForKey:@"id"] intValue];
 		detailViewController.voteText = [vote objectForKey:@"body"];
 		detailViewController.type = [vote objectForKey:@"type"];
+		detailViewController.hasCast = [[vote objectForKey:@"has_cast"] boolValue];
     }
 	else if ([[segue identifier] isEqualToString:@"ShowVoteResults"]) {
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -74,7 +75,6 @@
 	if (buttonIndex == 1) {
 		[self performSegueWithIdentifier:@"Logout" sender:self];
 	}
-	
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {

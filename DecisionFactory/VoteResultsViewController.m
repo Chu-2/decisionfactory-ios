@@ -7,11 +7,12 @@
 //
 
 #import "VoteResultsViewController.h"
+#import "VoteResultsView.h"
 #import "MyAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
 @interface VoteResultsViewController ()
-
+@property (weak, nonatomic) IBOutlet VoteResultsView *resultsView;
 @end
 
 @implementation VoteResultsViewController
@@ -31,7 +32,8 @@
 	NSMutableURLRequest *request = [client requestWithMethod:@"GET" path:path parameters:nil];
 	
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		NSLog(@"%@", JSON);
+		
+		self.resultsView.results = [[NSArray alloc] initWithArray:[JSON objectForKey:@"results"]];
 		
 		[self configureView];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -39,6 +41,10 @@
 	}];
 	
 	[operation start];
+}
+
+- (void)viewDidLayoutSubviews {
+	[self.resultsView setNeedsDisplay];
 }
 
 @end

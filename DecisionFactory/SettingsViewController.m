@@ -38,4 +38,9 @@
 	}
 }
 
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+	[[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:@"PushNotification"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

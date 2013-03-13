@@ -27,9 +27,6 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 	if (!self) return nil;
 	
 	[self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-	
-	NSString *token = [NSString stringWithFormat:@"Token %@", [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] objectForKey:@"user_token"]];
-	[self setDefaultHeader:@"Authorization" value:token];
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
 	
 	// self.parameterEncoding = AFJSONParameterEncoding;

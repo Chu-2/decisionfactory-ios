@@ -19,7 +19,7 @@
 @implementation CastVoteTVC
 
 #define PLURALITY_VOTE @"plurality"
-#define RANKING_VOTE @"ranking"
+#define RANKING_VOTE @"borda"
 
 - (NSMutableArray *)cellData {
 	if (!_cellData) {
@@ -125,12 +125,13 @@
 	NSError *error;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.decision options:NSJSONWritingPrettyPrinted error:&error];
 	
+	/*
 	if (!jsonData) {
 		NSLog(@"%@", error);
 	} else {
 		NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 		NSLog(@"%@", jsonString);
-	}
+	}*/
 	
 	MyAPIClient *client = [MyAPIClient sharedClient];
 	

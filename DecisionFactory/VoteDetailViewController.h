@@ -12,7 +12,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *optionView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *voteBarButton;
 @property (nonatomic) NSInteger voteId;
 @property (nonatomic) NSString *voteText;
 @property (nonatomic) NSString *type;
+@property (nonatomic) BOOL hasCast;
 @end

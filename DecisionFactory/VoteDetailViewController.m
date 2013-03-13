@@ -22,6 +22,8 @@
 	self.titleLabel.text = self.voteText;
 	self.typeLabel.text = [NSString stringWithFormat:@"Type: %@", self.type];
 	
+	if (!self.hasCast) self.voteBarButton.enabled = YES;
+	
 	int i = 1;
 	NSString *displayText = @"Options:\n";
 	for (NSDictionary *option in self.optionList) {
@@ -46,6 +48,7 @@
 			return [[a objectForKey:@"id"] compare:[b objectForKey:@"id"]];
 		}];
 		self.optionList = [[NSArray alloc] initWithArray:sortedList];
+		
 		[self configureView];
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
 		NSLog(@"Error: %@", error);

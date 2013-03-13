@@ -137,23 +137,23 @@
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="  Place Holder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUK-ks-uAl">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="195" id="AKi-Ng-RbO"/>
-                                                        <constraint firstAttribute="height" constant="24" id="RMW-Te-KCJ"/>
-                                                    </constraints>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="  Push notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUK-ks-uAl">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-bu-1WU"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-bu-1WU">
+                                                    <connections>
+                                                        <action selector="switchValueChanged:" destination="zwZ-Mm-nvB" eventType="valueChanged" id="dSc-On-Fah"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Lie-bu-1WU" firstAttribute="top" secondItem="KOX-ea-hTm" secondAttribute="top" constant="8" id="Toj-FS-rNd"/>
-                                            <constraint firstItem="Lie-bu-1WU" firstAttribute="leading" secondItem="VUK-ks-uAl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aGO-qP-lYq"/>
-                                            <constraint firstItem="Lie-bu-1WU" firstAttribute="bottom" secondItem="VUK-ks-uAl" secondAttribute="bottom" type="default" id="cHF-tr-jyr"/>
+                                            <constraint firstItem="VUK-ks-uAl" firstAttribute="centerY" secondItem="Lie-bu-1WU" secondAttribute="centerY" type="default" id="8dm-Ua-DfE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lie-bu-1WU" secondAttribute="trailing" constant="30" id="EAo-eQ-EnX"/>
+                                            <constraint firstItem="Lie-bu-1WU" firstAttribute="top" secondItem="KOX-ea-hTm" secondAttribute="top" constant="8" id="P6I-kM-5iF"/>
                                             <constraint firstItem="VUK-ks-uAl" firstAttribute="leading" secondItem="KOX-ea-hTm" secondAttribute="leading" constant="10" id="vPX-yh-2Es"/>
                                         </constraints>
                                     </tableViewCell>
@@ -193,7 +193,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0.9.8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUh-qq-lP1">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="0.9.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUh-qq-lP1">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -398,12 +398,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-s4-3AN" customClass="VoteResultsView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mAZ-E3-xLq" firstAttribute="top" secondItem="XqZ-QV-FHX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1ZS-wZ-aqb"/>
+                            <constraint firstItem="aED-s4-3AN" firstAttribute="leading" secondItem="g8u-Op-j6i" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2Z0-Vk-RcC"/>
+                            <constraint firstAttribute="bottom" secondItem="aED-s4-3AN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="7eh-aR-q8N"/>
+                            <constraint firstItem="aED-s4-3AN" firstAttribute="top" secondItem="mAZ-E3-xLq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="CGx-XF-Puc"/>
                             <constraint firstItem="mAZ-E3-xLq" firstAttribute="leading" secondItem="g8u-Op-j6i" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Iol-6h-zkE"/>
                             <constraint firstItem="XqZ-QV-FHX" firstAttribute="top" secondItem="g8u-Op-j6i" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ppy-uN-Cw8"/>
+                            <constraint firstAttribute="trailing" secondItem="aED-s4-3AN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Qph-UE-G8X"/>
                             <constraint firstItem="XqZ-QV-FHX" firstAttribute="leading" secondItem="g8u-Op-j6i" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SQK-ee-nIj"/>
                             <constraint firstAttribute="trailing" secondItem="XqZ-QV-FHX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lU9-rH-npe"/>
                             <constraint firstAttribute="trailing" secondItem="mAZ-E3-xLq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sA2-1Z-qs7"/>
@@ -411,6 +418,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Vote Results" id="o7r-aQ-tV0"/>
                     <connections>
+                        <outlet property="resultsView" destination="aED-s4-3AN" id="LT8-Vm-vkU"/>
                         <outlet property="titleLabel" destination="XqZ-QV-FHX" id="jpr-vW-YFl"/>
                         <outlet property="typeLabel" destination="mAZ-E3-xLq" id="0Zt-5Z-T4U"/>
                     </connections>
@@ -462,7 +470,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Vote Detail" id="26">
-                        <barButtonItem key="rightBarButtonItem" title="Vote" id="cmF-kn-RLC">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Vote" id="cmF-kn-RLC">
                             <connections>
                                 <segue destination="Zde-Uw-FHo" kind="push" identifier="CastVote" id="lPY-pt-Ab0"/>
                             </connections>
@@ -472,6 +480,7 @@
                         <outlet property="optionView" destination="sLq-98-3WU" id="t1S-8C-Ma9"/>
                         <outlet property="titleLabel" destination="tfT-bJ-QJa" id="v7W-Ez-s9T"/>
                         <outlet property="typeLabel" destination="eRq-E2-ddD" id="wGZ-zG-Mhj"/>
+                        <outlet property="voteBarButton" destination="cmF-kn-RLC" id="oDV-Vc-1YZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -604,6 +613,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="8wf-LD-KDK"/>
-        <segue reference="GEr-zx-AOu"/>
+        <segue reference="lj2-fI-0Le"/>
     </inferredMetricsTieBreakers>
 </document>

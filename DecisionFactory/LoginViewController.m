@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "MyAPIClient.h"
+#import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 
@@ -38,14 +39,14 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 - (void)sendDeviceToken {
 	MyAPIClient *client = [MyAPIClient sharedClient];
 	
-	NSDictionary *params = @{ @"DeviceToken": [[NSUserDefaults standardUserDefaults] stringForKey:@"DeviceToken"] };
-	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"" parameters:params];
+	NSDictionary *params = @{ @"deviceToken": [[NSUserDefaults standardUserDefaults] stringForKey:@"DeviceToken"] };
+	NSMutableURLRequest *request = [client requestWithMethod:@"POST" path:@"device_token/" parameters:params];
 	
-	NSLog(@"%@", params);
-	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		NSLog(@"%@", JSON);
-	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-		NSLog(@"Error: %@", error);
+	AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+	[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+		// NSLog(@"success: %@", operation.responseString);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		NSLog(@"error: %@", error);
 	}];
 	
 	[operation start];
@@ -75,11 +76,15 @@ static NSString * const baseURLString = @"http://cis422ddm.herokuapp.com/api-roo
 		if ([JSON objectForKey:@"token"]) {
 			self.resultLabel.text = @"Login successful!";
 			
-			NSMutableDictionary *userInfo = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_info"] mutableCopy];
-			if (!userInfo) userInfo = [[NSMutableDictionary alloc] init];
-			[userInfo setObject:[JSON objectForKey:@"token"] forKey:@"user_token"];
-			[[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"user_info"];
-			[[NSUserDefaults standardUserDefaults] synchronize];
+			NSString *token = [NSString stringWithFormat:@"token %@", [JSON objectForKey:@"token"]];
+			[[MyAPIClient sharedClient] setDefaultHeader:@"Authorization" value:token];
+			
+			NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"DeviceToken"];
+			if (deviceToken) [self sendDeviceToken];
+			else {
+				[[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"DeviceToken"];
+				[self sendDeviceToken];
+			}
 			
 			[self performSegueWithIdentifier:@"Login" sender:self];
 		} else if ([JSON objectForKey:@"message"]) {

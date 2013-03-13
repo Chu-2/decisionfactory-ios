@@ -23,7 +23,7 @@
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		NSMutableArray *list = [NSMutableArray array];
 		for (int i = 0; i < [JSON count]; i++) {
-			if ([JSON[i][@"has_cast"] boolValue]) [list addObject:JSON[i]];
+			if ([JSON[i][@"closed"] boolValue]) [list addObject:JSON[i]];
 		}
 		self.voteList = [[NSArray alloc] initWithArray:list];
 		[self.refreshControl endRefreshing];
