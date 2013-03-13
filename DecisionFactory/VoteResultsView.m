@@ -69,7 +69,7 @@
 
 - (void)drawOption:(CGPoint)point optionIndex:(NSUInteger)index {
 	// draw text
-	NSString *body = [NSString stringWithFormat:@"%d. %@  ", index+1, [[self.results objectAtIndex:index] objectForKey:@"body"]];
+	NSString *body = [NSString stringWithFormat:@"%d. %@  ", index + 1, [[self.results objectAtIndex:index] objectForKey:@"body"]];
 	
 	NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
 	UIFont *font = [UIFont systemFontOfSize:FONT_SIZE];
