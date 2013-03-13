@@ -13,6 +13,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.settingCell.textLabel.text = @"Push Notification";
+	UISwitch *switchObj = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 20.0)];
+	switchObj.on = YES;
+	[switchObj addTarget:self action:@selector(switchValueChanged:) forControlEvents:(UIControlEventValueChanged | UIControlEventTouchDragInside)];
+	self.settingCell.accessoryView = switchObj;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

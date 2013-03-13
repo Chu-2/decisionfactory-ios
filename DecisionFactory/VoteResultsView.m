@@ -45,12 +45,13 @@
 }
 
 #define CORNER_OFFSET 4.0
+#define OPTION_HEIGHT 60.0
 #define BAR_HEIGHT 20.0
 #define FONT_SIZE 16.0
 
 - (void)drawRect:(CGRect)rect
 {
-	CGFloat viewHeight = [self.results count] * 60.0 + CORNER_OFFSET * 2;
+	CGFloat viewHeight = [self.results count] * OPTION_HEIGHT + CORNER_OFFSET * 2;
 	if (viewHeight > self.bounds.size.height) {
 		self.contentSize = CGSizeMake(self.bounds.size.width, viewHeight);
 	}
@@ -62,7 +63,7 @@
 	self.total = total;
 	
 	for (int i = 0; i < [self.results count]; i++) {
-		[self drawOption:CGPointMake(CORNER_OFFSET, CORNER_OFFSET + 60 * i) optionIndex:i];
+		[self drawOption:CGPointMake(CORNER_OFFSET, CORNER_OFFSET + OPTION_HEIGHT * i) optionIndex:i];
 	}
 }
 
@@ -96,9 +97,9 @@
 	[self.colors[colorIndex] setFill];
 	[bar fill];
 	
-	// draw spread line
+	// draw spreading line
 	UIBezierPath *line = [[UIBezierPath alloc] init];
-	[line moveToPoint:CGPointMake(CORNER_OFFSET, point.y + 52)];
+	[line moveToPoint:CGPointMake(CORNER_OFFSET, point.y + 54)];
 	[line addLineToPoint:CGPointMake(self.bounds.size.width - CORNER_OFFSET, point.y + 54)];
 	[[UIColor blackColor] setStroke];
 	[line stroke];

@@ -136,26 +136,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="  Push notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUK-ks-uAl">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-bu-1WU">
-                                                    <connections>
-                                                        <action selector="switchValueChanged:" destination="zwZ-Mm-nvB" eventType="valueChanged" id="dSc-On-Fah"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="VUK-ks-uAl" firstAttribute="centerY" secondItem="Lie-bu-1WU" secondAttribute="centerY" type="default" id="8dm-Ua-DfE"/>
-                                            <constraint firstAttribute="trailing" secondItem="Lie-bu-1WU" secondAttribute="trailing" constant="30" id="EAo-eQ-EnX"/>
-                                            <constraint firstItem="Lie-bu-1WU" firstAttribute="top" secondItem="KOX-ea-hTm" secondAttribute="top" constant="8" id="P6I-kM-5iF"/>
-                                            <constraint firstItem="VUK-ks-uAl" firstAttribute="leading" secondItem="KOX-ea-hTm" secondAttribute="leading" constant="10" id="vPX-yh-2Es"/>
-                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -228,6 +210,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="PTy-C5-lOr"/>
                     <connections>
+                        <outlet property="settingCell" destination="KOX-ea-hTm" id="o3o-Tp-VEz"/>
                         <segue destination="uLA-Mb-40U" kind="modal" identifier="Logout" modalTransitionStyle="flipHorizontal" id="lj2-fI-0Le"/>
                     </connections>
                 </tableViewController>
